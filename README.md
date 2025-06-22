@@ -107,12 +107,3 @@ Yogesh Murugesan
 ⭐ If you find this helpful, don't forget to star the repo!
 
 ---
-
-### ✅ How to use:
-1. Create a `README.md` file in the root of your project.
-2. Paste the entire content above.
-3. Commit and push:
-   ```bash
-   git add README.md
-   git commit -m "Added project README"
-   git push
