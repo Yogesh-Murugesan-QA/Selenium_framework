@@ -19,10 +19,10 @@ public class BaseTest {
         return driver;
     }
 
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();  // ✅ Close browser after all tests
-        }
-    }
+//    @AfterClass
+//    public void tearDown() {
+//        if (driver != null) {
+//            driver.quit();  // ✅ Close browser after all tests
+//        }
+//    }
 }

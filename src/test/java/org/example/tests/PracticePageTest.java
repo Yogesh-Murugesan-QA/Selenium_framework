@@ -1,13 +1,14 @@
 package org.example.tests;
 
 import org.example.base.BaseTest;
+import org.example.utils.DropdownUtils;
+import org.example.utils.PageUtils;
 import org.example.pages.PracticePage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Duration;
 
@@ -52,11 +53,25 @@ public class PracticePageTest extends BaseTest {
         Assert.assertFalse(page.isRadioButton1Selected(), "Radio Button 1 should NOT be selected");
         Assert.assertFalse(page.isRadioButton2Selected(), "Radio Button 2 should NOT be selected");
 
-        String pagesource= driver.getPageSource();
-        FileWriter writer = new FileWriter("pageSource.html");
-        writer.write(pagesource);
-        writer.close();
     }
-
+    @Test
+    public void printPageSource(){
+        PageUtils.savePageSource(driver, "pageSource.html");
+    }
+    @Test
+    public void testCheckbox() {
+        PracticePage page = new PracticePage(driver);
+        page.selectCheckBox1();
+        Assert.assertTrue(page.isCheckBox1Selected(), "CheckBox 1 should be selected");
+        page.selectCheckBox2();
+        Assert.assertTrue(page.isCheckBox2Selected(), "CheckBox 2  should be selected");
+        page.selectCheckBox3();
+        Assert.assertTrue(page.isCheckBox3Selected(), "CheckBox 3  should be selected");
+    }
+    @Test
+    public void testDropdown() {
+        PracticePage page = new PracticePage(driver);
+        DropdownUtils.selectByIndex(page.getDropdownElement(), 2);
+    }
 }
 
